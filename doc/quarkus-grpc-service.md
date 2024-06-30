@@ -170,11 +170,11 @@ What is this uni and multi stuff?
 
 In the traditional and imperative approach, frameworks assign a thread to handle the request. So, the whole processing of the request runs on this worker thread. This model does not scale very well. Indeed, to handle multiple concurrent requests, you need multiple threads; and so your application concurrency is constrained by the number of threads. In addition, these threads are blocked as soon as your code interacts with remote services. So, it leads to inefficient usage of the resources, as you may need more threads, and each thread, as they are mapped to OS threads, has a cost in terms of memory and CPU.
 
-![blocking-threading](./threading-1.png)
+![blocking-threading](../res/threading-1.png)
 
 On the other side, the reactive model relies on non-blocking I/Os and a different execution model. Non-blocking I/O provides an efficient way to deal with concurrent I/O. A minimal amount of threads called I/O threads, can handle many concurrent I/O. With such a model, request processing is not delegated to a worker thread but uses these I/O threads [directly.It](http://directly.it/) saves memory and CPU as there is no need to create worker threads to handle the requests. It also improves the concurrency as it removes the constraint on the number of threads. Finally, it also improves response time as it reduces the number of thread switches.
 
-![non-blocking-threading](./threading-2.png)
+![non-blocking-threading](../res/threading-2.png)
 
 gRPC server services are served by a server.  Ha.
 
@@ -209,20 +209,3 @@ We can run the application using:
 $ mvn quarkus:dev
 ```
 
-Let’s test this:
-
-[Quarkus gRPC Testing](quarkus-grpc-testing.md)
-
-[Quarkus gRPC Add Interceptor. ](quarkus-grpc-interceptor.md)
-
-[Quarkus gRPC Blocking](quarkus-grpc-blocking.md)
-
-[Quarkus gRPC Add Health Check](quarkus-grpc-health-check.md)
-
-[Quarkus gRPC Metrics Collection](quarkus-grpc-metrics-collection.md)
-
-[Quarkus gRPC Scaling](quarkus-grpc-scaling.md)
-
-[Quarkus gRPC Streaming](quarkus-grpc-streaming.md)
-
-[Quarkus gRPC Virtual Threads](quarkus-grpc-virtual-threads.md)
